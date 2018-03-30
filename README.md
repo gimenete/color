@@ -6,7 +6,7 @@
 * Yarn. Tested with 1.3.2
 * Google Chrome for e2e testing. Tested with 65.0.3325.181
 
-## Installing
+## Installing
 
 * Clone the repo
 * Run `yarn` in the cloned folder
