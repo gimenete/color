@@ -1,0 +1,33 @@
+{
+  "name": "adidas",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bulma": "^0.6.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "lodash.shuffle": "^4.2.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
+    "react-test-renderer": "^16.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged",
+    "e2e": "testcafe chrome e2e/integration.js"
+  },
+  "devDependencies": {
+    "husky": "^0.15.0-rc.13",
+    "lint-staged": "^7.0.1",
+    "prettier": "^1.11.1",
+    "testcafe": "^0.19.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,css,scss,md}": ["prettier --write", "git add"]
+  }
+}

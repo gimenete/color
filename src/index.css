@@ -1,0 +1,70 @@
+/* Center the game in the browser window */
+html,
+body,
+#root,
+section {
+  height: 100%; /* We could have used 100vh as well */
+}
+
+section {
+  display: flex;
+  align-items: center;
+}
+/* */
+
+h1 {
+  font-size: 60px;
+}
+
+.game {
+  text-align: center;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pick-color h1 {
+  margin: 30px;
+  font-size: 60px;
+  /* Make sure that any color has contrast with the background by adding a solid shadow*/
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.pick-color progress {
+  width: 25%;
+  margin: 50px auto;
+}
+
+.pick-color .buttons .column a {
+  width: 50%;
+}
+
+.pick-color .buttons .button {
+  border-width: 5px;
+  font-size: 25px;
+}
+
+/* If it's in robot mode or during an animation, the user cannot click on the buttons */
+.animated .pick-color .buttons .button,
+.robot .pick-color .buttons .button {
+  pointer-events: none;
+}
+
+.play-options {
+  padding-top: 50px;
+}
+
+.play-options .columns {
+  padding-top: 20px;
+}
+
+.play-options .button {
+  font-size: 25px;
+}
+
+.robot-indicator {
+  font-size: 40px;
+}
