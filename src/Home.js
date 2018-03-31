@@ -6,6 +6,9 @@ const Home = ({ onPlay }) => {
   return (
     <div className="home">
       <h1>Color</h1>
+      <div className="notification is-primary">
+        Instructions: you need to select the color of the word, not the text of the word itself
+      </div>
       <PlayOptions onPlay={onPlay} />
     </div>
   )

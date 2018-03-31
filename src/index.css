@@ -26,6 +26,10 @@ h1 {
   padding: 20px;
 }
 
+.home h1 {
+  font-size: 90px;
+}
+
 .pick-color h1 {
   margin: 30px;
   font-size: 60px;
