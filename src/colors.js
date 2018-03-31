@@ -1,3 +1,4 @@
+// In TypeScript we could use an enumeration
 const COLOR_MODE_NORMAL = 'COLOR_MODE_NORMAL'
 const COLOR_MODE_DARK = 'COLOR_MODE_DARK'
 

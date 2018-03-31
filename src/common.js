@@ -1,3 +1,9 @@
+import shuffle from 'lodash.shuffle'
+import { allColors } from './colors'
+
+// These two functions could be considered selectors in the redux jargon
+// Then cam be memoized
+
 export const calculateHitsPercentage = results => {
   const hits = results.reduce((total, result) => {
     return total + (result.success ? 1 : 0)
@@ -24,4 +30,31 @@ export const shiftOption = colors => {
     colorValue: a.value,
     displayText: b.name
   }
+}
+
+export const generateTest = colorMode => {
+  const colors = shuffle(allColors[colorMode])
+  const solution = shiftOption(colors)
+  const test = {
+    solution,
+    options: [shiftOption(colors), shiftOption(colors)]
+  }
+  const option = randomItem(test.options)
+  option.displayText = solution.colorName
+  return test
+}
+
+// These functions could be converted to redux acitons
+
+export const getInitialGameState = () => []
+
+export const addResult = (gameState, action) => {
+  const { success, time } = action
+  return [
+    ...gameState,
+    {
+      time,
+      success
+    }
+  ]
 }

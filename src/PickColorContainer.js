@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import shuffle from 'lodash.shuffle'
 import PropTypes from 'prop-types'
 import PickColor from './PickColor'
-import { allColors } from './colors'
-import { randomItem, shiftOption } from './common'
+import { generateTest, getInitialGameState, addResult } from './common'
 
 const TESTS_PER_GAME = 10
 const ANIMATION_DURATION = 1000
@@ -13,7 +11,7 @@ class PickColorContainer extends Component {
     test: null,
     testsShown: 0,
     progress: 0,
-    results: []
+    results: getInitialGameState()
   }
 
   componentDidMount() {
@@ -53,18 +51,9 @@ class PickColorContainer extends Component {
   }
 
   showNextTest() {
-    const colors = shuffle(allColors[this.props.colorMode])
-    const solution = shiftOption(colors)
-    const test = {
-      solution,
-      options: [shiftOption(colors), shiftOption(colors)]
-    }
-    const option = randomItem(test.options)
-    option.displayText = solution.colorName
-
     clearInterval(this.interval)
     this.setState(prevState => ({
-      test,
+      test: generateTest(this.props.colorMode),
       progress: 0,
       testsShown: prevState.testsShown + 1,
       timestamp: Date.now()
@@ -83,13 +72,10 @@ class PickColorContainer extends Component {
   played(success) {
     const time = Date.now() - this.state.timestamp
     this.setState(prevState => ({
-      results: [
-        ...this.state.results,
-        {
-          time,
-          success
-        }
-      ],
+      results: addResult(this.state.results, {
+        time,
+        success
+      }),
       animation: success ? 'tada' : 'shake'
     }))
     clearInterval(this.interval)
